@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace EcommerceProject.Data.config
 {
-    internal class CustomerConfiguraions : IEntityTypeConfiguration<Customers>
+    internal class StaffAccountConfigurations : IEntityTypeConfiguration<StaffAccounts>
     {
-        public void Configure(EntityTypeBuilder<Customers> builder)
+        public void Configure(EntityTypeBuilder<StaffAccounts> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.ToTable(nameof(Customers));
+            builder.ToTable(nameof(StaffAccounts));
 
             builder.Property(x => x.firstName).
                 HasColumnType("varchar")
@@ -56,23 +56,15 @@ namespace EcommerceProject.Data.config
                HasColumnType("date")
                .HasDefaultValueSql("GETDATE()");
 
-            builder.HasMany(x =>x.Cards)
-                .WithOne(x => x.customer)
-                .HasForeignKey(x => x.CustomerId)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Property(x => x.profileImage)
+                .HasColumnType("varchar(max)");
 
-            builder.HasMany(x => x.Orders)
-                .WithOne(x =>x.customer)
-                .HasForeignKey(x =>x.customerId)
-                .IsRequired(true)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(x => x.Roles)
+                .WithMany(x => x.StaffAccounts)
+                .UsingEntity<StaffRoles>();
 
-            builder.HasMany(x => x.CustomerAddresses)
-                .WithOne(x => x.customer)
-                .HasForeignKey(x => x.customerId)
-                .IsRequired(true)
-                .OnDelete(DeleteBehavior.Restrict);
-
+            builder.HasMany(x => x.Notifications)
+                .WithOne(x => x.Account);
         }
     }
 }

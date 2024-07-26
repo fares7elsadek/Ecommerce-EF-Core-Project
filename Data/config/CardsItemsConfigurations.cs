@@ -21,7 +21,7 @@ namespace EcommerceProject.Data.config
                 .HasColumnType("smallint")
                 .IsRequired();
 
-            builder.ToTable(t => t.HasCheckConstraint("CK_Quantity_NoNegative", "[quantity]>=0"));
+            builder.ToTable(t => t.HasCheckConstraint("CK_Quantity3_NoNegative", "[quantity]>=0"));
         }
     }
 }

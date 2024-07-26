@@ -38,7 +38,7 @@ namespace EcommerceProject.Data.config
                 .IsRequired();
      
 
-            builder.ToTable(t => t.HasCheckConstraint("CK_Quantity_NoNegative", "[quantity]>=0"));
+            builder.ToTable(t => t.HasCheckConstraint("CK_Quantity2_NoNegative", "[quantity]>=0"));
 
             builder.Property(x => x.shortDescription).
                 HasColumnType("varchar")
@@ -77,6 +77,28 @@ namespace EcommerceProject.Data.config
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(x => x.ProductShippings)
+                .WithOne(x => x.product)
+                .HasForeignKey(x => x.ProductId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.HasMany(x => x.Coupons)
+                .WithMany(x => x.Products)
+                .UsingEntity<ProductCoupons>();
+
+            builder.HasMany(x => x.Orders)
+                .WithMany(x => x.products)
+                .UsingEntity<OrderItems>();
+
+            builder.HasMany(x => x.attributes)
+                .WithMany(x => x.Products)
+                .UsingEntity<productAttributes>();
+
+            builder.HasMany(x => x.tags)
+                .WithMany(x => x.Products)
+                .UsingEntity<ProductTags>();
         }
     }
 }

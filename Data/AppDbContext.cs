@@ -22,6 +22,39 @@ namespace EcommerceProject.Data
 
         public DbSet<Customers> Customers { get; set; }
 
+        public DbSet<Attributes> Attributes { get; set; }
+
+        public DbSet<AttributeValues> AttributeValues { get; set; }
+
+        public DbSet<CustomerAddresses> CustomerAddresses { get; set; }
+
+        public DbSet<Notifications> Notifications { get; set; }
+
+        public DbSet<OrderItems> OrderItems { get; set; }
+
+        public DbSet<productAttributes> ProductAttributes { get; set; }
+
+        public DbSet<ProductCoupons> ProductCoupons { get; set; }
+
+        public DbSet<ProductShippings> ProductShippings { get; set; }
+
+        public DbSet<ProductTags> ProductTags { get; set; }
+
+        public DbSet<StaffRoles> StaffRoles { get; set; }
+
+        public DbSet<StaffAccounts> StaffAccounts { get; set; }
+
+        public DbSet<Orders> Orders { get; set; }
+
+        public DbSet<Shippings> Shippings { get; set; } 
+
+        public DbSet<Tags> Tags { get; set; }
+
+        public DbSet<Roles> Roles { get; set; }
+
+        public DbSet<Coupons> Coupons { get; set; }
+
+        public DbSet<OrderStatuses> OrderStatuses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

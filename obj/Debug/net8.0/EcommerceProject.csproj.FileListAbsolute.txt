@@ -136,3 +136,4 @@ C:\Users\fares\source\repos\EcommerceProject\EcommerceProject\obj\Debug\net8.0\r
 C:\Users\fares\source\repos\EcommerceProject\EcommerceProject\obj\Debug\net8.0\EcommerceProject.pdb
 C:\Users\fares\source\repos\EcommerceProject\EcommerceProject\obj\Debug\net8.0\EcommerceProject.genruntimeconfig.cache
 C:\Users\fares\source\repos\EcommerceProject\EcommerceProject\obj\Debug\net8.0\ref\EcommerceProject.dll
+C:\Users\fares\source\repos\EcommerceProject\EcommerceProject\obj\Debug\net8.0\EcommerceProject.sourcelink.json

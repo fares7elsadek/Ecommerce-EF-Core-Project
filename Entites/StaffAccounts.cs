@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceProject.Entites
 {
-    public class Customers
+    public class StaffAccounts
     {
         public int Id { get; set; }
         public string firstName { get; set; } = null!;
@@ -20,14 +20,16 @@ namespace EcommerceProject.Entites
 
         public bool active { get; set; }
 
+        public string profileImage { get; set; } = null!;
+
         public DateTime RegisteredAt { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
-        public List<Cards> Cards { get; set; } = new List<Cards>();
+        public List<Roles> Roles { get; set; } = new List<Roles>();
+        public List<StaffRoles> StaffRoles { get; set; } = new List<StaffRoles>();
 
-        public List<Orders> Orders { get; set; } = new List<Orders>();
+        public List<Notifications> Notifications { get; set; } = new List<Notifications>();
 
-        public List<CustomerAddresses> CustomerAddresses { get; set; } = new List<CustomerAddresses>();
     }
 }
